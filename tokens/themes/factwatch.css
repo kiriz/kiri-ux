@@ -31,9 +31,9 @@
   --color-surface-hover:  hsl(42 30% 92.5%);
   --color-surface-active: hsl(42 22% 88%);
 
-  --color-on-surface:        hsl(30 14% 15%);  /* warm near-black */
-  --color-on-surface-muted:  hsl(32 9% 40%);
-  --color-on-surface-subtle: hsl(32 7% 54%);
+  --color-on-surface:        hsl(35 9% 24%);   /* soft warm charcoal — not stark black */
+  --color-on-surface-muted:  hsl(35 7% 44%);
+  --color-on-surface-subtle: hsl(35 6% 58%);
 
   --color-border:        hsl(40 20% 88%);      /* hairline warm border */
   --color-border-strong: hsl(40 16% 79%);
