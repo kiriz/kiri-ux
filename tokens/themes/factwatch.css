@@ -31,9 +31,9 @@
   --color-surface-hover:  hsl(42 30% 92.5%);
   --color-surface-active: hsl(42 22% 88%);
 
-  --color-on-surface:        hsl(35 9% 24%);   /* soft warm charcoal — not stark black */
-  --color-on-surface-muted:  hsl(35 7% 44%);
-  --color-on-surface-subtle: hsl(35 6% 58%);
+  --color-on-surface:        hsl(34 8% 32%);   /* warm grey ink — clearly softer than black */
+  --color-on-surface-muted:  hsl(34 7% 48%);
+  --color-on-surface-subtle: hsl(34 6% 60%);
 
   --color-border:        hsl(40 20% 88%);      /* hairline warm border */
   --color-border-strong: hsl(40 16% 79%);

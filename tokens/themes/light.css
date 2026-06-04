@@ -31,8 +31,8 @@
   --neutral-8:  hsl(var(--neutral-hue) 12% 64%);
   --neutral-9:  hsl(var(--neutral-hue) 8%  52%);
   --neutral-10: hsl(var(--neutral-hue) 8%  46%);
-  --neutral-11: hsl(var(--neutral-hue) 14% 36%);
-  --neutral-12: hsl(var(--neutral-hue) 22% 12%);
+  --neutral-11: hsl(var(--neutral-hue) 12% 40%);
+  --neutral-12: hsl(var(--neutral-hue) 16% 20%);  /* soft dark ink, not stark #000 (template default) */
 
   /* feedback subtle backgrounds go pale instead of dark */
   --success-3: hsl(var(--success-hue) 60% 94%);
