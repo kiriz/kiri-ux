@@ -37,32 +37,40 @@
   /* ── Focus ring ─────────────────────────────────────────── */
   --color-focus-ring:        var(--primary-8);
 
-  /* ── Feedback intents (bg-subtle, border, solid, text) ─── */
+  /* ── Feedback intents (bg-subtle, border, solid, text, on-solid) ─
+   * --color-on-{intent} is the text color for a SOLID fill of that intent.
+   * Warning/amber is intrinsically light → dark text; the rest take white.
+   * (Cato audit 2026-06-04: white-on-amber never passes AA.) */
   --color-success:        var(--success-9);
   --color-success-subtle: var(--success-3);
   --color-success-border: var(--success-6);
   --color-success-text:   var(--success-11);
+  --color-on-success:     hsl(0 0% 100%);
 
   --color-warning:        var(--warning-9);
   --color-warning-subtle: var(--warning-3);
   --color-warning-border: var(--warning-6);
   --color-warning-text:   var(--warning-11);
+  --color-on-warning:     hsl(38 90% 12%);   /* dark text on amber */
 
   --color-error:          var(--error-9);
   --color-error-subtle:   var(--error-3);
   --color-error-border:   var(--error-6);
   --color-error-text:     var(--error-11);
+  --color-on-error:       hsl(0 0% 100%);
 
   --color-info:           var(--info-9);
   --color-info-subtle:    var(--info-3);
   --color-info-border:    var(--info-6);
   --color-info-text:      var(--info-11);
+  --color-on-info:        hsl(0 0% 100%);
 
-  /* ── Data-viz verdict palette (FactWatch-class apps) ────── */
+  /* ── Data-viz verdict palette (FactWatch-class apps) ──────
+   * All map to primitives — no raw hsl() in the role layer. */
   --color-viz-positive: var(--success-9);
   --color-viz-negative: var(--error-9);
   --color-viz-caution:  var(--warning-9);
   --color-viz-neutral:  var(--neutral-9);
-  --color-viz-special:  hsl(270 70% 65%);
-  --color-viz-stale:    hsl(48 90% 52%);
+  --color-viz-special:  var(--purple-9);
+  --color-viz-stale:    var(--gold-9);
 }

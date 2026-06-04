@@ -7,6 +7,11 @@
  * Load AFTER base.css.
  */
 
+/* NEW-INTENT RULE (Cato audit 2026-06-04): feedback steps (-3/-6/-9/-11) use
+ * HARDCODED lightness, unlike neutral/primary which self-flip via the inverted
+ * --_l* curve. Any new intent added to primitives/color.css MUST add its
+ * light-mode overrides in this block, or it will ship dark-on-light in light
+ * mode. There is no auto-flip for hardcoded feedback steps. */
 [data-theme="light"] {
   color-scheme: light;
 
@@ -34,6 +39,22 @@
   --warning-3: hsl(var(--warning-hue) 80% 92%);
   --error-3:   hsl(var(--error-hue)  70% 95%);
   --info-3:    hsl(var(--info-hue)   60% 94%);
+
+  /* CRITICAL (Cato audit 2026-06-04): the -11 TEXT steps are defined with
+   * fixed dark-mode lightness (62-70% L). On the pale -3 backgrounds above
+   * that is light-on-light = WCAG fail. Re-derive them DARK for light mode so
+   * feedback text on its subtle background passes AA. The -6 borders (dark)
+   * stay legible on pale bg, so they need no override. */
+  --success-11: hsl(var(--success-hue) 60% 26%);
+  --warning-11: hsl(var(--warning-hue) 90% 30%);
+  --error-11:   hsl(var(--error-hue)  68% 40%);
+  --info-11:    hsl(var(--info-hue)   70% 32%);
+
+  /* borders need to be visible on pale subtle bg: deepen them */
+  --success-6: hsl(var(--success-hue) 40% 70%);
+  --warning-6: hsl(var(--warning-hue) 55% 65%);
+  --error-6:   hsl(var(--error-hue)  55% 78%);
+  --info-6:    hsl(var(--info-hue)   45% 72%);
 
   /* shadows: softer + cooler on light surfaces */
   --shadow-strength: 0.08;

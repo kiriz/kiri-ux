@@ -18,7 +18,12 @@
   /* ── Step lightness curve (dark mode) ───────────────────── */
   --_l1: 8%;   --_l2: 11%;  --_l3: 15%;  --_l4: 18%;
   --_l5: 21%;  --_l6: 26%;  --_l7: 32%;  --_l8: 40%;
-  --_l9: 58%;  --_l10: 64%; --_l11: 72%; --_l12: 93%;
+  /* _l9 = the "solid accent" step. Held at 48% (not 58%) so white
+   * --color-on-primary passes WCAG AA (≥4.5:1) for the safe hue band
+   * (blues/violets/reds). Light hues (yellow/cyan/green) still need the
+   * documented --color-on-primary dark-text override — see themes/_template.css.
+   * Cato audit 2026-06-04. */
+  --_l9: 48%;  --_l10: 56%; --_l11: 72%; --_l12: 93%;
 
   /* ── Step saturation curve (chroma falls off at the extremes) */
   --_s1: 18%;  --_s2: 20%;  --_s3: 22%;  --_s4: 24%;
@@ -86,6 +91,11 @@
   --info-11: hsl(var(--info-hue) 60% 66%);
   --info-3:  hsl(var(--info-hue) 30% 15%);
   --info-6:  hsl(var(--info-hue) 34% 26%);
+
+  /* ── EXTRA data-viz hues (purple, gold) — primitives so the
+   *    semantic layer never embeds raw hsl(). Cato audit 2026-06-04. */
+  --purple-9: hsl(270 70% 60%);
+  --gold-9:   hsl(48 90% 52%);
 
   /* ── Alpha primitives (sub-atomic — layer over any surface) */
   --black-a3:  hsl(0 0% 0% / 0.15);

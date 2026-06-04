@@ -14,8 +14,19 @@
    * The single most important knob. Rotating this re-tints the
    * entire primary scale (steps 1–12) coherently.
    *   210=blue  160=teal  145=green  280=violet  340=pink  25=orange
+   *
+   * ⚠ CONTRAST CAVEAT (Cato audit 2026-06-04): HSL is NOT perceptually
+   * uniform. --primary-9 sits at 58% lightness, and white --color-on-primary
+   * passes WCAG AA on it for "dark" hues (blue/violet/red/pink ~ 200–360 & 0–20)
+   * but FAILS for intrinsically-light hues — yellow/lime/cyan (~ 45–195),
+   * which look much lighter at the same L%. If your brand hue is in that band,
+   * flip primary text to dark by uncommenting the line below.
    */
   --primary-hue: 217;
+
+  /* Uncomment for light hues (yellow/lime/cyan ≈ 45–195) so text on solid
+   * primary fills stays legible: */
+  /* --color-on-primary: var(--neutral-12); */
 
   /* ── NEUTRAL HUE ────────────────────────────────────────────
    * Warmth of greys. Tie near the brand hue for harmony, or 0 for
