@@ -1,20 +1,51 @@
 /* kiri-ux · themes/factwatch.css
- * FactWatch brand — the first kiri-ux consumer. Dark, technical, blue-accent
- * fact-checking dashboard. Load after base.css.
+ * FactWatch brand — first kiri-ux consumer. Light-first, warm "paper" surfaces
+ * (Anthropic) with clean white Material cards + trustworthy blue (Google).
+ * Load after base.css + light.css. FactWatch sets <html data-theme="light">.
  */
 
 :root {
-  --primary-hue: 217;   /* signal blue */
-  --neutral-hue: 225;   /* cool blue-grey surfaces */
+  --primary-hue: 214;      /* clean Google blue */
+  --neutral-hue: 40;       /* warm paper greys */
   --scaling: 1;
-  --radius-scaling: 1;
-  --shadow-hue: 225;
+  --radius-scaling: 1.25;  /* gently rounder — friendlier */
+  --shadow-hue: 38;        /* warm shadows */
 
   /* FactWatch verdict palette pinned to the data-viz roles */
-  --color-viz-positive: hsl(142 70% 45%);   /* TRUE */
-  --color-viz-negative: hsl(4 85% 60%);     /* FALSE */
-  --color-viz-caution:  hsl(25 95% 55%);    /* MISLEADING */
-  --color-viz-neutral:  hsl(215 15% 60%);   /* UNVERIFIED */
-  --color-viz-stale:    hsl(48 95% 50%);    /* OUTDATED */
-  --color-viz-special:  hsl(270 70% 65%);   /* DISPUTED */
+  --color-viz-positive: hsl(142 64% 40%);   /* TRUE */
+  --color-viz-negative: hsl(4 78% 54%);     /* FALSE */
+  --color-viz-caution:  hsl(28 88% 48%);    /* MISLEADING */
+  --color-viz-neutral:  hsl(215 12% 52%);   /* UNVERIFIED */
+  --color-viz-stale:    hsl(42 88% 44%);    /* OUTDATED */
+  --color-viz-special:  hsl(270 60% 58%);   /* DISPUTED */
+}
+
+/* ── Anthropic paper + Google Material (light) ──────────────────
+ * Overrides kiri-ux's generic light curve so cards are WHITE and pop above a
+ * warm IVORY page via soft shadows — the Material-on-paper look — instead of
+ * the dark-first inverted elevation (which would make cards darker than bg). */
+[data-theme="light"] {
+  --color-surface:        hsl(42 33% 96.5%);  /* warm ivory page background */
+  --color-surface-subtle: hsl(42 28% 94%);
+  --color-surface-raised: hsl(0 0% 100%);      /* white cards */
+  --color-surface-hover:  hsl(42 30% 92.5%);
+  --color-surface-active: hsl(42 22% 88%);
+
+  --color-on-surface:        hsl(30 14% 15%);  /* warm near-black */
+  --color-on-surface-muted:  hsl(32 9% 40%);
+  --color-on-surface-subtle: hsl(32 7% 54%);
+
+  --color-border:        hsl(40 20% 88%);      /* hairline warm border */
+  --color-border-strong: hsl(40 16% 79%);
+  --color-border-hover:  hsl(40 16% 72%);
+
+  --color-primary:        hsl(214 80% 48%);
+  --color-primary-hover:  hsl(214 80% 42%);
+  --color-primary-text:   hsl(214 82% 44%);
+  --color-primary-subtle: hsl(214 70% 95%);
+  --color-primary-border: hsl(214 50% 82%);
+
+  /* soft, warm Material shadow on white cards */
+  --shadow-strength: 0.05;
+  --shadow-color: 38 28% 32%;
 }
