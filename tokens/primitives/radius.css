@@ -1,0 +1,14 @@
+/* kiri-ux · primitives/radius.css
+ * 5-level radius scale + full (pill). --radius-scaling lets a theme go sharper
+ * (0) or rounder (1.5) globally.
+ */
+
+:root {
+  --radius-scaling: 1;
+
+  --radius-sm:   calc(4px  * var(--radius-scaling));
+  --radius-md:   calc(8px  * var(--radius-scaling));
+  --radius-lg:   calc(12px * var(--radius-scaling));
+  --radius-xl:   calc(16px * var(--radius-scaling));
+  --radius-full: 999px;
+}

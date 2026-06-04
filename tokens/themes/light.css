@@ -1,0 +1,44 @@
+/* kiri-ux · themes/light.css
+ * Light-mode override. Apply by setting <html data-theme="light"> — no JS
+ * required. Inverts the neutral lightness curve and flips shadow strength.
+ * Only primitives change; semantic role mappings are untouched, so every
+ * component flips correctly for free.
+ *
+ * Load AFTER base.css.
+ */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* invert the lightness curve: step 1 = lightest, step 12 = darkest */
+  --_l1: 99%;  --_l2: 97%;  --_l3: 94%;  --_l4: 91%;
+  --_l5: 88%;  --_l6: 84%;  --_l7: 78%;  --_l8: 66%;
+  --_l9: 52%;  --_l10: 46%; --_l11: 38%; --_l12: 12%;
+
+  /* neutral re-derives from the inverted curve */
+  --neutral-1:  hsl(var(--neutral-hue) 30% 99%);
+  --neutral-2:  hsl(var(--neutral-hue) 24% 97%);
+  --neutral-3:  hsl(var(--neutral-hue) 18% 94%);
+  --neutral-4:  hsl(var(--neutral-hue) 16% 91%);
+  --neutral-5:  hsl(var(--neutral-hue) 15% 88%);
+  --neutral-6:  hsl(var(--neutral-hue) 14% 83%);
+  --neutral-7:  hsl(var(--neutral-hue) 13% 76%);
+  --neutral-8:  hsl(var(--neutral-hue) 12% 64%);
+  --neutral-9:  hsl(var(--neutral-hue) 8%  52%);
+  --neutral-10: hsl(var(--neutral-hue) 8%  46%);
+  --neutral-11: hsl(var(--neutral-hue) 14% 36%);
+  --neutral-12: hsl(var(--neutral-hue) 22% 12%);
+
+  /* feedback subtle backgrounds go pale instead of dark */
+  --success-3: hsl(var(--success-hue) 60% 94%);
+  --warning-3: hsl(var(--warning-hue) 80% 92%);
+  --error-3:   hsl(var(--error-hue)  70% 95%);
+  --info-3:    hsl(var(--info-hue)   60% 94%);
+
+  /* shadows: softer + cooler on light surfaces */
+  --shadow-strength: 0.08;
+  --shadow-color: var(--shadow-hue) 30% 30%;
+
+  /* overlay scrim flips to a dark wash on light bg */
+  --color-surface-overlay: hsl(0 0% 0% / 0.45);
+}

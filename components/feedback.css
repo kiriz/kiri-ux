@@ -1,0 +1,76 @@
+/* kiri-ux · components/feedback.css
+ * Feedback + state: alert, spinner, skeleton, empty state, toast.
+ */
+
+/* ── Alert ──────────────────────────────────────────────────── */
+.alert {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--alert-border, var(--color-border));
+  background: var(--alert-bg, var(--color-surface-raised));
+  color: var(--color-on-surface);
+  font-size: var(--text-small-size);
+}
+.alert--info    { --alert-bg: var(--color-info-subtle);    --alert-border: var(--color-info-border); }
+.alert--success { --alert-bg: var(--color-success-subtle); --alert-border: var(--color-success-border); }
+.alert--warning { --alert-bg: var(--color-warning-subtle); --alert-border: var(--color-warning-border); }
+.alert--error   { --alert-bg: var(--color-error-subtle);   --alert-border: var(--color-error-border); }
+.alert__icon { flex-shrink: 0; line-height: var(--line-height-normal); }
+.alert__body { flex: 1; }
+.alert__title { font-weight: var(--font-weight-semibold); margin-bottom: 2px; }
+.alert__close { appearance: none; background: none; border: none; color: var(--color-on-surface-muted); cursor: pointer; font-size: var(--text-body-size); line-height: 1; padding: 2px; }
+.alert__close:hover { color: var(--color-on-surface); }
+
+/* ── Spinner ────────────────────────────────────────────────── */
+.spinner {
+  display: inline-block;
+  width: var(--spinner-size, 24px); height: var(--spinner-size, 24px);
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  animation: kx-spin 0.7s linear infinite;
+}
+.spinner--sm { --spinner-size: 16px; border-width: 2px; }
+.spinner--lg { --spinner-size: 40px; border-width: 4px; }
+@keyframes kx-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 1.5s; } }
+
+/* ── Skeleton ───────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, var(--color-surface-raised) 25%, var(--color-surface-hover) 50%, var(--color-surface-raised) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: kx-shimmer 1.4s ease-in-out infinite;
+}
+.skeleton--text { height: 0.8em; margin: 0.2em 0; }
+.skeleton--title { height: 1.4em; width: 60%; }
+.skeleton--block { height: 100px; }
+@keyframes kx-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
+
+/* ── Empty state ────────────────────────────────────────────── */
+.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-sm); padding: var(--space-2xl) var(--space-md); color: var(--color-on-surface-muted); }
+.empty-state__icon { font-size: var(--font-size-9); opacity: 0.5; }
+.empty-state__title { font-size: var(--text-h4-size); font-weight: var(--font-weight-semibold); color: var(--color-on-surface); }
+.empty-state__body { max-width: 42ch; }
+
+/* ── Toast ──────────────────────────────────────────────────── */
+.toast-region { position: fixed; bottom: var(--space-md); right: var(--space-md); z-index: var(--z-toast); display: flex; flex-direction: column; gap: var(--space-xs); max-width: 360px; }
+.toast {
+  display: flex; gap: var(--space-sm); align-items: flex-start;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--toast-border, var(--color-border));
+  background: var(--color-surface-raised);
+  box-shadow: var(--elevation-overlay);
+  font-size: var(--text-small-size);
+  animation: kx-toast-in var(--duration-base) var(--ease-spring);
+}
+.toast--info    { --toast-border: var(--color-info-border); }
+.toast--success { --toast-border: var(--color-success-border); }
+.toast--warning { --toast-border: var(--color-warning-border); }
+.toast--error   { --toast-border: var(--color-error-border); }
+@keyframes kx-toast-in { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }

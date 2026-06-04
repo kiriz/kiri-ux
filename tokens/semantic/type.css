@@ -1,0 +1,47 @@
+/* kiri-ux · semantic/type.css
+ * Named type roles. Components reference --text-{role}; never raw font-size-N.
+ * Each role bundles size + line-height + weight + tracking intent.
+ */
+
+:root {
+  --text-display-size:   var(--font-size-9);
+  --text-display-lh:     var(--line-height-tight);
+  --text-display-weight: var(--font-weight-bold);
+  --text-display-track:  var(--letter-spacing-tight);
+
+  --text-h1-size:   var(--font-size-8);
+  --text-h1-lh:     var(--line-height-tight);
+  --text-h1-weight: var(--font-weight-bold);
+
+  --text-h2-size:   var(--font-size-7);
+  --text-h2-lh:     var(--line-height-snug);
+  --text-h2-weight: var(--font-weight-semibold);
+
+  --text-h3-size:   var(--font-size-6);
+  --text-h3-lh:     var(--line-height-snug);
+  --text-h3-weight: var(--font-weight-semibold);
+
+  --text-h4-size:   var(--font-size-5);
+  --text-h4-lh:     var(--line-height-snug);
+  --text-h4-weight: var(--font-weight-semibold);
+
+  --text-body-size:   var(--font-size-4);
+  --text-body-lh:     var(--line-height-normal);
+  --text-body-weight: var(--font-weight-normal);
+
+  --text-small-size:   var(--font-size-3);
+  --text-small-lh:     var(--line-height-normal);
+  --text-small-weight: var(--font-weight-normal);
+
+  --text-caption-size:   var(--font-size-2);
+  --text-caption-lh:     var(--line-height-normal);
+  --text-caption-weight: var(--font-weight-medium);
+
+  /* uppercase label (technical / data UIs) */
+  --text-label-size:   var(--font-size-2);
+  --text-label-weight: var(--font-weight-bold);
+  --text-label-track:  var(--letter-spacing-caps);
+
+  --text-mono-size: var(--font-size-3);
+  --text-mono-lh:   var(--line-height-normal);
+}

@@ -1,0 +1,50 @@
+/* kiri-ux · themes/base.css
+ * The default theme: dark mode, neutral-blue brand. Imports every primitive
+ * and semantic layer in order. A consuming project loads THIS (plus optionally
+ * a project theme that overrides --primary-hue etc.) and is done.
+ *
+ * Import order matters: primitives → semantic. Semantic references primitives.
+ */
+
+@import url("../primitives/color.css");
+@import url("../primitives/space.css");
+@import url("../primitives/type.css");
+@import url("../primitives/shadow.css");
+@import url("../primitives/radius.css");
+@import url("../primitives/motion.css");
+
+@import url("../semantic/color.css");
+@import url("../semantic/space.css");
+@import url("../semantic/type.css");
+@import url("../semantic/shadow.css");
+
+/* base reset + document defaults */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  font-weight: var(--text-body-weight);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+a { color: var(--color-primary-text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+code, pre, kbd, samp { font-family: var(--font-mono); }

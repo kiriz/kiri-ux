@@ -1,0 +1,97 @@
+/* kiri-ux · primitives/color.css
+ * 12-step HSL color scales (Radix-inspired). Hue is a variable so a single
+ * --hue rotation produces a coherent scale. Steps follow Radix semantics:
+ *   1  app background            7  UI border / focus ring
+ *   2  subtle background         8  hovered UI border
+ *   3  UI element background     9  solid background (pure accent)
+ *   4  hovered UI element bg     10 hovered solid background
+ *   5  active / selected bg      11 low-contrast text
+ *   6  subtle border            12 high-contrast text
+ *
+ * Dark-mode tuned: lightness rises 1→12. Alpha variants (-a*) layer over
+ * any surface. Override --hue / --chroma per hue family below.
+ *
+ * NEVER reference these directly in a component. Map through semantic/ first.
+ */
+
+:root {
+  /* ── Step lightness curve (dark mode) ───────────────────── */
+  --_l1: 8%;   --_l2: 11%;  --_l3: 15%;  --_l4: 18%;
+  --_l5: 21%;  --_l6: 26%;  --_l7: 32%;  --_l8: 40%;
+  --_l9: 58%;  --_l10: 64%; --_l11: 72%; --_l12: 93%;
+
+  /* ── Step saturation curve (chroma falls off at the extremes) */
+  --_s1: 18%;  --_s2: 20%;  --_s3: 22%;  --_s4: 24%;
+  --_s5: 26%;  --_s6: 28%;  --_s7: 30%;  --_s8: 34%;
+  --_s9: 62%;  --_s10: 60%; --_s11: 40%; --_s12: 30%;
+
+  /* ── NEUTRAL (low chroma, tied to brand hue for warmth) ── */
+  --neutral-hue: 225;
+  --neutral-1:  hsl(var(--neutral-hue) 14% var(--_l1));
+  --neutral-2:  hsl(var(--neutral-hue) 13% var(--_l2));
+  --neutral-3:  hsl(var(--neutral-hue) 12% var(--_l3));
+  --neutral-4:  hsl(var(--neutral-hue) 11% var(--_l4));
+  --neutral-5:  hsl(var(--neutral-hue) 10% var(--_l5));
+  --neutral-6:  hsl(var(--neutral-hue) 9%  var(--_l6));
+  --neutral-7:  hsl(var(--neutral-hue) 9%  var(--_l7));
+  --neutral-8:  hsl(var(--neutral-hue) 8%  var(--_l8));
+  --neutral-9:  hsl(var(--neutral-hue) 8%  48%);
+  --neutral-10: hsl(var(--neutral-hue) 8%  54%);
+  --neutral-11: hsl(var(--neutral-hue) 12% 70%);
+  --neutral-12: hsl(var(--neutral-hue) 16% 94%);
+
+  /* ── PRIMARY (brand accent — rotate --primary-hue per theme) */
+  --primary-hue: 217;
+  --primary-1:  hsl(var(--primary-hue) var(--_s1)  var(--_l1));
+  --primary-2:  hsl(var(--primary-hue) var(--_s2)  var(--_l2));
+  --primary-3:  hsl(var(--primary-hue) var(--_s3)  var(--_l3));
+  --primary-4:  hsl(var(--primary-hue) var(--_s4)  var(--_l4));
+  --primary-5:  hsl(var(--primary-hue) var(--_s5)  var(--_l5));
+  --primary-6:  hsl(var(--primary-hue) var(--_s6)  var(--_l6));
+  --primary-7:  hsl(var(--primary-hue) var(--_s7)  var(--_l7));
+  --primary-8:  hsl(var(--primary-hue) var(--_s8)  var(--_l8));
+  --primary-9:  hsl(var(--primary-hue) var(--_s9)  var(--_l9));
+  --primary-10: hsl(var(--primary-hue) var(--_s10) var(--_l10));
+  --primary-11: hsl(var(--primary-hue) var(--_s11) var(--_l11));
+  --primary-12: hsl(var(--primary-hue) var(--_s12) var(--_l12));
+
+  /* ── SUCCESS (green) ────────────────────────────────────── */
+  --success-hue: 145;
+  --success-9:  hsl(var(--success-hue) 62% 42%);
+  --success-10: hsl(var(--success-hue) 60% 48%);
+  --success-11: hsl(var(--success-hue) 50% 62%);
+  --success-3:  hsl(var(--success-hue) 24% 15%);
+  --success-6:  hsl(var(--success-hue) 28% 26%);
+
+  /* ── WARNING (amber) ────────────────────────────────────── */
+  --warning-hue: 38;
+  --warning-9:  hsl(var(--warning-hue) 90% 52%);
+  --warning-10: hsl(var(--warning-hue) 88% 58%);
+  --warning-11: hsl(var(--warning-hue) 80% 64%);
+  --warning-3:  hsl(var(--warning-hue) 40% 15%);
+  --warning-6:  hsl(var(--warning-hue) 44% 26%);
+
+  /* ── ERROR (red) ────────────────────────────────────────── */
+  --error-hue: 4;
+  --error-9:  hsl(var(--error-hue) 75% 56%);
+  --error-10: hsl(var(--error-hue) 73% 62%);
+  --error-11: hsl(var(--error-hue) 70% 70%);
+  --error-3:  hsl(var(--error-hue) 34% 16%);
+  --error-6:  hsl(var(--error-hue) 40% 28%);
+
+  /* ── INFO (cyan) ────────────────────────────────────────── */
+  --info-hue: 200;
+  --info-9:  hsl(var(--info-hue) 70% 50%);
+  --info-10: hsl(var(--info-hue) 68% 56%);
+  --info-11: hsl(var(--info-hue) 60% 66%);
+  --info-3:  hsl(var(--info-hue) 30% 15%);
+  --info-6:  hsl(var(--info-hue) 34% 26%);
+
+  /* ── Alpha primitives (sub-atomic — layer over any surface) */
+  --black-a3:  hsl(0 0% 0% / 0.15);
+  --black-a6:  hsl(0 0% 0% / 0.35);
+  --black-a9:  hsl(0 0% 0% / 0.55);
+  --white-a3:  hsl(0 0% 100% / 0.05);
+  --white-a6:  hsl(0 0% 100% / 0.10);
+  --white-a9:  hsl(0 0% 100% / 0.22);
+}

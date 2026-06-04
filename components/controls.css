@@ -1,0 +1,31 @@
+/* kiri-ux · components/controls.css
+ * Sort bar (pill toggle group) + filter bar (label+select row).
+ */
+
+/* ── Sort bar ───────────────────────────────────────────────── */
+.sort-bar { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+.sort-bar__label { font-size: var(--text-caption-size); color: var(--color-on-surface-muted); }
+.sort-btn {
+  appearance: none;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-on-surface-muted);
+  padding: var(--space-2xs) var(--space-sm);
+  font-size: var(--text-caption-size);
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out);
+}
+.sort-btn:hover { border-color: var(--color-border-hover); color: var(--color-on-surface); }
+.sort-btn[aria-pressed="true"] { border-color: var(--color-primary-border); color: var(--color-primary-text); background: var(--color-primary-subtle); }
+
+/* ── Filter bar ─────────────────────────────────────────────── */
+.filter-bar { display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: flex-end; }
+.filter-bar__group { display: flex; flex-direction: column; gap: var(--space-2xs); }
+.filter-bar__label { font-size: var(--text-caption-size); color: var(--color-on-surface-muted); }
+
+@media (max-width: 768px) {
+  .filter-bar { flex-direction: column; align-items: stretch; }
+}

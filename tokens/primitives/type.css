@@ -1,0 +1,39 @@
+/* kiri-ux · primitives/type.css
+ * Font families (system stack, no web-font dependency) + a 1.25 modular size
+ * scale, line-height steps, letter-spacing, and weight roles. --scaling
+ * applies to sizes so type scales with the density multiplier.
+ */
+
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", "Fira Code",
+    "Cascadia Code", Menlo, Consolas, monospace;
+
+  /* 1.25 modular scale, base 16px */
+  --font-size-1:  calc(0.64rem  * var(--scaling));  /* 10.24 */
+  --font-size-2:  calc(0.80rem  * var(--scaling));  /* 12.80 */
+  --font-size-3:  calc(0.875rem * var(--scaling));  /* 14    */
+  --font-size-4:  calc(1rem     * var(--scaling));  /* 16    */
+  --font-size-5:  calc(1.25rem  * var(--scaling));  /* 20    */
+  --font-size-6:  calc(1.5rem   * var(--scaling));  /* 24    */
+  --font-size-7:  calc(1.875rem * var(--scaling));  /* 30    */
+  --font-size-8:  calc(2.25rem  * var(--scaling));  /* 36    */
+  --font-size-9:  calc(3rem     * var(--scaling));  /* 48    */
+  --font-size-10: calc(3.75rem  * var(--scaling));  /* 60    */
+
+  --line-height-tight:  1.2;
+  --line-height-snug:   1.35;
+  --line-height-normal: 1.55;
+  --line-height-loose:  1.75;
+
+  --letter-spacing-tight:  -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide:   0.04em;
+  --letter-spacing-caps:   0.08em;
+
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+}

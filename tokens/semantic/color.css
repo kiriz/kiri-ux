@@ -1,0 +1,68 @@
+/* kiri-ux · semantic/color.css
+ * Role layer. Components reference ONLY these — never primitives, never hex.
+ * Each role maps to a primitive step. Light mode (themes/light.css) and
+ * project themes override primitives; these role mappings stay constant.
+ *
+ * Naming: --color-{role} for surfaces/content, --color-{intent}-{part} for
+ * interactive + feedback. "on-X" = content that sits on surface X.
+ */
+
+:root {
+  /* ── Surfaces (background layers, low → high elevation) ── */
+  --color-surface:          var(--neutral-1);
+  --color-surface-subtle:   var(--neutral-2);
+  --color-surface-raised:   var(--neutral-3);
+  --color-surface-hover:    var(--neutral-4);
+  --color-surface-active:   var(--neutral-5);
+  --color-surface-overlay:  var(--black-a9);
+
+  /* ── Content (text / icons on surfaces) ─────────────────── */
+  --color-on-surface:        var(--neutral-12);  /* high-contrast body/heading */
+  --color-on-surface-muted:  var(--neutral-11);  /* secondary text */
+  --color-on-surface-subtle: var(--neutral-10);  /* tertiary / disabled-ish */
+
+  /* ── Borders / separators ───────────────────────────────── */
+  --color-border:        var(--neutral-6);
+  --color-border-strong: var(--neutral-7);
+  --color-border-hover:  var(--neutral-8);
+
+  /* ── Primary (brand accent) ─────────────────────────────── */
+  --color-primary:           var(--primary-9);
+  --color-primary-hover:     var(--primary-10);
+  --color-primary-subtle:    var(--primary-3);
+  --color-primary-border:    var(--primary-7);
+  --color-primary-text:      var(--primary-11);
+  --color-on-primary:        hsl(0 0% 100%);
+
+  /* ── Focus ring ─────────────────────────────────────────── */
+  --color-focus-ring:        var(--primary-8);
+
+  /* ── Feedback intents (bg-subtle, border, solid, text) ─── */
+  --color-success:        var(--success-9);
+  --color-success-subtle: var(--success-3);
+  --color-success-border: var(--success-6);
+  --color-success-text:   var(--success-11);
+
+  --color-warning:        var(--warning-9);
+  --color-warning-subtle: var(--warning-3);
+  --color-warning-border: var(--warning-6);
+  --color-warning-text:   var(--warning-11);
+
+  --color-error:          var(--error-9);
+  --color-error-subtle:   var(--error-3);
+  --color-error-border:   var(--error-6);
+  --color-error-text:     var(--error-11);
+
+  --color-info:           var(--info-9);
+  --color-info-subtle:    var(--info-3);
+  --color-info-border:    var(--info-6);
+  --color-info-text:      var(--info-11);
+
+  /* ── Data-viz verdict palette (FactWatch-class apps) ────── */
+  --color-viz-positive: var(--success-9);
+  --color-viz-negative: var(--error-9);
+  --color-viz-caution:  var(--warning-9);
+  --color-viz-neutral:  var(--neutral-9);
+  --color-viz-special:  hsl(270 70% 65%);
+  --color-viz-stale:    hsl(48 90% 52%);
+}

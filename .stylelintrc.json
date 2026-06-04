@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "color-no-invalid-hex": true,
+    "no-duplicate-selectors": null,
+    "block-no-empty": true,
+    "no-empty-source": true,
+    "property-no-unknown": [true, { "ignoreProperties": ["/^--/"] }],
+    "declaration-block-no-duplicate-properties": [true, { "ignore": ["consecutive-duplicates-with-different-values"] }]
+  }
+}

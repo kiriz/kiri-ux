@@ -1,0 +1,23 @@
+/* kiri-ux · semantic/shadow.css
+ * Named elevation roles. Components reference --elevation-{role}, mapping to
+ * the calculated primitive shadow levels.
+ */
+
+:root {
+  --elevation-flat:    none;
+  --elevation-card:    var(--shadow-sm);
+  --elevation-raised:  var(--shadow-md);
+  --elevation-overlay: var(--shadow-lg);
+  --elevation-modal:   var(--shadow-xl);
+
+  /* focus ring as a box-shadow (keyboard affordance) */
+  --elevation-focus: 0 0 0 3px hsl(var(--primary-hue) 80% 55% / 0.45);
+
+  /* z-index scale — named stacking order */
+  --z-base:     0;
+  --z-dropdown: 1000;
+  --z-sticky:   1100;
+  --z-overlay:  1200;
+  --z-modal:    1300;
+  --z-toast:    1400;
+}

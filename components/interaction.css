@@ -1,0 +1,78 @@
+/* kiri-ux · components/interaction.css
+ * Dropdown, modal, accordion. Visual layer; behavior in interaction.js.
+ */
+
+/* ── Dropdown ───────────────────────────────────────────────── */
+.dropdown { position: relative; display: inline-block; }
+.dropdown__panel {
+  position: absolute;
+  top: calc(100% + var(--space-2xs));
+  left: 0;
+  min-width: 180px;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-overlay);
+  padding: var(--space-2xs);
+  z-index: var(--z-dropdown);
+  display: none;
+}
+.dropdown__panel[data-open] { display: block; animation: kx-pop var(--duration-fast) var(--ease-out); }
+.dropdown__item {
+  display: flex; align-items: center; gap: var(--space-xs);
+  width: 100%; text-align: left;
+  appearance: none; background: none; border: none;
+  color: var(--color-on-surface);
+  padding: var(--space-2) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-small-size); font-family: inherit;
+  cursor: pointer;
+}
+.dropdown__item:hover, .dropdown__item:focus-visible { background: var(--color-surface-hover); outline: none; }
+@keyframes kx-pop { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Modal ──────────────────────────────────────────────────── */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: var(--color-surface-overlay);
+  z-index: var(--z-modal);
+  display: grid; place-items: center;
+  padding: var(--space-md);
+  animation: kx-fade var(--duration-base) var(--ease-out);
+}
+.modal-backdrop[hidden] { display: none; }
+.modal {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-modal);
+  max-width: 540px; width: 100%;
+  max-height: 85vh; overflow-y: auto;
+  animation: kx-modal-in var(--duration-base) var(--ease-spring);
+}
+.modal__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding: var(--space-md); border-bottom: 1px solid var(--color-border); }
+.modal__title { font-size: var(--text-h4-size); font-weight: var(--font-weight-semibold); }
+.modal__body { padding: var(--space-md); }
+.modal__footer { display: flex; justify-content: flex-end; gap: var(--space-sm); padding: var(--space-md); border-top: 1px solid var(--color-border); }
+.modal__close { appearance: none; background: none; border: none; color: var(--color-on-surface-muted); cursor: pointer; font-size: var(--text-h4-size); line-height: 1; padding: var(--space-2xs); }
+.modal__close:hover { color: var(--color-on-surface); }
+@keyframes kx-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes kx-modal-in { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+
+/* ── Accordion ──────────────────────────────────────────────── */
+.accordion { border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; }
+.accordion__item:not(:last-child) { border-bottom: 1px solid var(--color-border); }
+.accordion__trigger {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm);
+  width: 100%; text-align: left;
+  appearance: none; background: var(--color-surface-subtle); border: none;
+  color: var(--color-on-surface);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-small-size); font-weight: var(--font-weight-medium); font-family: inherit;
+  cursor: pointer;
+}
+.accordion__trigger:hover { background: var(--color-surface-hover); }
+.accordion__icon { transition: transform var(--duration-base) var(--ease-out); color: var(--color-on-surface-muted); }
+.accordion__trigger[aria-expanded="true"] .accordion__icon { transform: rotate(180deg); }
+.accordion__panel { overflow: hidden; transition: height var(--duration-base) var(--ease-inout); }
+.accordion__panel-inner { padding: var(--space-md); }

@@ -1,0 +1,20 @@
+/* kiri-ux · themes/factwatch.css
+ * FactWatch brand — the first kiri-ux consumer. Dark, technical, blue-accent
+ * fact-checking dashboard. Load after base.css.
+ */
+
+:root {
+  --primary-hue: 217;   /* signal blue */
+  --neutral-hue: 225;   /* cool blue-grey surfaces */
+  --scaling: 1;
+  --radius-scaling: 1;
+  --shadow-hue: 225;
+
+  /* FactWatch verdict palette pinned to the data-viz roles */
+  --color-viz-positive: hsl(142 70% 45%);   /* TRUE */
+  --color-viz-negative: hsl(4 85% 60%);     /* FALSE */
+  --color-viz-caution:  hsl(25 95% 55%);    /* MISLEADING */
+  --color-viz-neutral:  hsl(215 15% 60%);   /* UNVERIFIED */
+  --color-viz-stale:    hsl(48 95% 50%);    /* OUTDATED */
+  --color-viz-special:  hsl(270 70% 65%);   /* DISPUTED */
+}

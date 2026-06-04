@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kiri-ux · Design System</title>
+  <link rel="stylesheet" href="../tokens/themes/base.css">
+  <link rel="stylesheet" href="../tokens/themes/light.css">
+  <link rel="stylesheet" href="../components/index.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="layout-with-sidebar">
+    <aside class="sidebar">
+      <nav class="nav-sidebar" aria-label="Component navigation">
+        <div class="nav-header__brand" style="padding:var(--space-sm) var(--space-2)">
+          <span class="nav-header__title">kiri-ux</span>
+          <span class="nav-header__tagline">design system</span>
+        </div>
+
+        <div class="demo-controls stack stack--sm">
+          <div class="form-field">
+            <label class="form-field__label" for="theme-toggle">Theme</label>
+            <select class="select" id="theme-toggle">
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-field__label" for="hue-slider">Brand hue: <span id="hue-val">217</span></label>
+            <input class="input" type="range" id="hue-slider" min="0" max="360" value="217">
+          </div>
+        </div>
+
+        <div class="nav-sidebar__section">Foundation</div>
+        <a class="nav-sidebar__link" href="#tokens">Tokens</a>
+        <div class="nav-sidebar__section">General</div>
+        <a class="nav-sidebar__link" href="#buttons">Buttons</a>
+        <a class="nav-sidebar__link" href="#badges">Badges</a>
+        <div class="nav-sidebar__section">Layout</div>
+        <a class="nav-sidebar__link" href="#layout">Layout</a>
+        <div class="nav-sidebar__section">Navigation</div>
+        <a class="nav-sidebar__link" href="#nav">Nav · Tabs · Breadcrumb</a>
+        <div class="nav-sidebar__section">Data Entry</div>
+        <a class="nav-sidebar__link" href="#forms">Forms · Controls</a>
+        <div class="nav-sidebar__section">Data Display</div>
+        <a class="nav-sidebar__link" href="#cards">Cards · Table · Timeline</a>
+        <a class="nav-sidebar__link" href="#specialized">Code · Pipeline</a>
+        <div class="nav-sidebar__section">Feedback</div>
+        <a class="nav-sidebar__link" href="#feedback">Alerts · Toast · Empty</a>
+        <div class="nav-sidebar__section">Interaction</div>
+        <a class="nav-sidebar__link" href="#interaction">Dropdown · Modal · Accordion</a>
+      </nav>
+    </aside>
+
+    <main class="main" id="main">
+      <div class="container">
+        <header style="padding:var(--space-xl) 0 var(--space-lg)">
+          <h1 style="font-size:var(--text-h1-size);font-weight:var(--font-weight-bold)">kiri-ux</h1>
+          <p style="color:var(--color-on-surface-muted);max-width:60ch;margin-top:var(--space-xs)">
+            A token-driven, dark-mode-first design system. Vanilla CSS + minimal JS. Rotate the brand hue
+            in the sidebar — every component re-tints coherently because nothing hardcodes a color.
+          </p>
+        </header>
+
+        <!-- TOKENS -->
+        <section id="tokens" class="demo-section">
+          <h2 class="demo-h2">Tokens</h2>
+          <p class="demo-use"><strong>The three tiers:</strong> primitive → semantic → component. Components reference only semantic roles. Rotate the hue to see primitives change while role mappings stay constant.</p>
+          <h3 class="demo-h3">Primary scale (1→12)</h3>
+          <div class="swatch-row" id="primary-swatches"></div>
+          <h3 class="demo-h3">Neutral scale (1→12)</h3>
+          <div class="swatch-row" id="neutral-swatches"></div>
+          <h3 class="demo-h3">Semantic roles</h3>
+          <div class="swatch-row">
+            <div class="swatch" style="background:var(--color-surface)"><span>surface</span></div>
+            <div class="swatch" style="background:var(--color-surface-raised)"><span>raised</span></div>
+            <div class="swatch" style="background:var(--color-primary)"><span>primary</span></div>
+            <div class="swatch" style="background:var(--color-success)"><span>success</span></div>
+            <div class="swatch" style="background:var(--color-warning)"><span>warning</span></div>
+            <div class="swatch" style="background:var(--color-error)"><span>error</span></div>
+            <div class="swatch" style="background:var(--color-info)"><span>info</span></div>
+          </div>
+        </section>
+
+        <!-- BUTTONS -->
+        <section id="buttons" class="demo-section">
+          <h2 class="demo-h2">Buttons</h2>
+          <p class="demo-use">✅ <strong>Use for:</strong> actions the user takes. Primary = the one main action per view.</p>
+          <p class="demo-dont">🚫 <strong>Don't:</strong> use more than one primary button in a view, or use a button for navigation (use a link).</p>
+          <div class="demo-preview cluster">
+            <button class="btn btn--primary">Primary</button>
+            <button class="btn btn--secondary">Secondary</button>
+            <button class="btn btn--ghost">Ghost</button>
+            <button class="btn btn--primary" aria-busy="true">Loading</button>
+            <button class="btn btn--primary" disabled>Disabled</button>
+            <button class="btn btn--secondary btn--sm">Small</button>
+            <button class="btn btn--secondary btn--lg">Large</button>
+          </div>
+          <pre class="code-pre demo-snippet">&lt;button class="btn btn--primary"&gt;Primary&lt;/button&gt;</pre>
+        </section>
+
+        <!-- BADGES -->
+        <section id="badges" class="demo-section">
+          <h2 class="demo-h2">Badges</h2>
+          <p class="demo-use">✅ <strong>Use for:</strong> status, category, or verdict labels inline with content.</p>
+          <p class="demo-dont">🚫 <strong>Don't:</strong> use as a clickable control (it's a label, not a button).</p>
+          <div class="demo-preview cluster">
+            <span class="badge badge--neutral">Neutral</span>
+            <span class="badge badge--brand">Brand</span>
+            <span class="badge badge--success">True</span>
+            <span class="badge badge--error">False</span>
+            <span class="badge badge--warning">Misleading</span>
+            <span class="badge badge--info">Info</span>
+          </div>
+          <pre class="code-pre demo-snippet">&lt;span class="badge badge--success"&gt;True&lt;/span&gt;</pre>
+        </section>
+
+        <!-- LAYOUT -->
+        <section id="layout" class="demo-section">
+          <h2 class="demo-h2">Layout</h2>
+          <p class="demo-use">✅ <strong>stack</strong> for vertical rhythm, <strong>cluster</strong> for horizontal wrapping rows, <strong>grid-auto</strong> for responsive cards, <strong>layout-with-sidebar</strong> for app shells (this page uses it).</p>
+          <div class="demo-preview">
+            <div class="grid-auto" style="--grid-min:160px">
+              <div class="card">Auto-grid item</div>
+              <div class="card">Auto-grid item</div>
+              <div class="card">Auto-grid item</div>
+            </div>
+          </div>
+          <pre class="code-pre demo-snippet">&lt;div class="grid-auto" style="--grid-min:280px"&gt;…&lt;/div&gt;</pre>
+        </section>
+
+        <!-- NAV -->
+        <section id="nav" class="demo-section">
+          <h2 class="demo-h2">Navigation</h2>
+          <p class="demo-use">✅ <strong>Tabs</strong> for switching views in place. <strong>Breadcrumb</strong> for hierarchy depth ≥2. <strong>Sidebar</strong> for ≥5 destinations.</p>
+          <div class="demo-preview stack">
+            <nav class="breadcrumb"><span class="breadcrumb__item"><a href="#">Home</a></span><span class="breadcrumb__item"><a href="#">Claims</a></span><span class="breadcrumb__item">Detail</span></nav>
+            <div class="tabs" role="tablist">
+              <button class="tabs__tab" role="tab" aria-selected="true" aria-controls="tp1" id="t1">Overview</button>
+              <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="tp2" id="t2" tabindex="-1">Sources</button>
+              <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="tp3" id="t3" tabindex="-1">History</button>
+            </div>
+            <div class="tabs__panel" role="tabpanel" id="tp1" aria-labelledby="t1">Overview panel content.</div>
+            <div class="tabs__panel" role="tabpanel" id="tp2" aria-labelledby="t2" hidden>Sources panel content.</div>
+            <div class="tabs__panel" role="tabpanel" id="tp3" aria-labelledby="t3" hidden>History panel content.</div>
+          </div>
+        </section>
+
+        <!-- FORMS -->
+        <section id="forms" class="demo-section">
+          <h2 class="demo-h2">Forms &amp; Controls</h2>
+          <p class="demo-use">✅ <strong>Validate on blur</strong> for individual fields, on submit for the form. Always pair an input with a label.</p>
+          <p class="demo-dont">🚫 <strong>Don't:</strong> use placeholder text as the only label — it vanishes on input.</p>
+          <div class="demo-preview stack" style="max-width:360px">
+            <div class="form-field">
+              <label class="form-field__label" for="d-in">Email</label>
+              <input class="input" id="d-in" type="email" placeholder="you@example.com">
+              <span class="form-field__hint">We never share this.</span>
+            </div>
+            <div class="form-field form-field--invalid">
+              <label class="form-field__label" for="d-in2">Username</label>
+              <input class="input" id="d-in2" value="taken" aria-describedby="d-err">
+              <span class="form-field__error" id="d-err">That username is taken.</span>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="d-sel">Category</label>
+              <select class="select" id="d-sel"><option>Science</option><option>Politics</option></select>
+            </div>
+          </div>
+          <div class="demo-preview">
+            <div class="sort-bar">
+              <span class="sort-bar__label">Sort:</span>
+              <button class="sort-btn" aria-pressed="true">🔥 Trending</button>
+              <button class="sort-btn" aria-pressed="false">Most viewed</button>
+              <button class="sort-btn" aria-pressed="false">A–Z</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- CARDS -->
+        <section id="cards" class="demo-section">
+          <h2 class="demo-h2">Data Display</h2>
+          <p class="demo-use">✅ <strong>Cards</strong> when items have ≤5 fields and are browsed. <strong>Table</strong> when items have many fields and are compared. <strong>Timeline</strong> for ordered events.</p>
+          <div class="demo-preview grid-auto" style="--grid-min:300px">
+            <article class="card-news" style="--card-accent:var(--color-viz-negative)">
+              <div class="card-news__top">
+                <span class="card-news__title">Humans only use 10% of their brains</span>
+                <span class="badge badge--error">False</span>
+              </div>
+              <div class="card-news__bottom"><span>health</span><span>·</span><span>🔥 trending</span><span>·</span><span>100%</span></div>
+            </article>
+            <article class="card-news" style="--card-accent:var(--color-viz-positive)">
+              <div class="card-news__top">
+                <span class="card-news__title">Octopuses have three hearts</span>
+                <span class="badge badge--success">True</span>
+              </div>
+              <div class="card-news__bottom"><span>science</span><span>·</span><span>100%</span></div>
+            </article>
+          </div>
+          <div class="demo-preview cluster">
+            <div class="stat-box"><div class="stat-box__label">Claims</div><div class="stat-box__value">15</div></div>
+            <div class="stat-box"><div class="stat-box__label">Changed</div><div class="stat-box__value">2</div></div>
+          </div>
+          <div class="demo-preview" style="max-width:280px">
+            <div class="confidence-bar"><div class="confidence-bar__fill" style="width:72%;--bar-color:var(--color-warning)"></div></div>
+          </div>
+        </section>
+
+        <!-- SPECIALIZED -->
+        <section id="specialized" class="demo-section">
+          <h2 class="demo-h2">Code &amp; Pipeline</h2>
+          <p class="demo-use">✅ <strong>Pipeline</strong> for showing a multi-step process (agent traces, build steps, wizards). <strong>Code block</strong> for raw output.</p>
+          <div class="demo-preview">
+            <div class="pipeline">
+              <div class="pipeline__step">
+                <div class="pipeline__rail"><div class="pipeline__num pipeline__num" style="--step-color:var(--color-primary)">1</div><div class="pipeline__line"></div></div>
+                <div class="pipeline__body"><div class="pipeline__label"><span class="pipeline__label-title">Input</span></div><div class="chip chip--mono">claim-001</div></div>
+              </div>
+              <div class="pipeline__step">
+                <div class="pipeline__rail"><div class="pipeline__num" style="--step-color:var(--color-viz-special);--step-fg:#fff">2</div></div>
+                <div class="pipeline__body"><div class="pipeline__label"><span class="pipeline__label-title">Search</span><span class="pipeline__label-meta">3 queries · 6 results</span></div></div>
+              </div>
+            </div>
+          </div>
+          <pre class="code-pre">{ "verdict": "FALSE", "confidence": 100 }</pre>
+        </section>
+
+        <!-- FEEDBACK -->
+        <section id="feedback" class="demo-section">
+          <h2 class="demo-h2">Feedback</h2>
+          <p class="demo-use">✅ <strong>Toast</strong> for transient confirmations. <strong>Alert</strong> for persistent in-context messages. <strong>Empty state</strong> when a list has zero items.</p>
+          <p class="demo-dont">🚫 <strong>Don't:</strong> use a toast for errors the user must act on — it disappears.</p>
+          <div class="demo-preview stack">
+            <div class="alert alert--info"><span class="alert__icon">ℹ️</span><div class="alert__body"><div class="alert__title">Heads up</div>The agent runs daily at 06:00 UTC.</div></div>
+            <div class="alert alert--error"><span class="alert__icon">⛔</span><div class="alert__body">API rate limit reached. Retrying.</div></div>
+            <button class="btn btn--secondary" onclick="kiriUX.toast('Saved!', {variant:'success'})">Trigger toast</button>
+          </div>
+          <div class="demo-preview"><div class="empty-state"><div class="empty-state__icon">📭</div><div class="empty-state__title">No claims yet</div><p class="empty-state__body">The agent will populate this on its next run.</p></div></div>
+        </section>
+
+        <!-- INTERACTION -->
+        <section id="interaction" class="demo-section">
+          <h2 class="demo-h2">Interaction</h2>
+          <p class="demo-use">✅ All JS components are keyboard-navigable and focus-trapped. They degrade gracefully without JS.</p>
+          <div class="demo-preview cluster">
+            <div class="dropdown">
+              <button class="btn btn--secondary" data-dropdown-trigger>Menu ▾</button>
+              <div class="dropdown__panel"><button class="dropdown__item">Edit</button><button class="dropdown__item">Duplicate</button><button class="dropdown__item">Delete</button></div>
+            </div>
+            <button class="btn btn--primary" data-modal-open="demo-modal">Open modal</button>
+          </div>
+          <div class="demo-preview">
+            <div class="accordion">
+              <div class="accordion__item">
+                <button class="accordion__trigger" aria-expanded="false">What is kiri-ux? <span class="accordion__icon">▾</span></button>
+                <div class="accordion__panel"><div class="accordion__panel-inner">A token-driven design system reused across projects.</div></div>
+              </div>
+              <div class="accordion__item">
+                <button class="accordion__trigger" aria-expanded="false">How do I theme it? <span class="accordion__icon">▾</span></button>
+                <div class="accordion__panel"><div class="accordion__panel-inner">Copy <code>_template.css</code>, change <code>--primary-hue</code>.</div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="demo-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dm-title">
+      <div class="modal__header"><h2 class="modal__title" id="dm-title">Confirm</h2><button class="modal__close" data-modal-close aria-label="Close">×</button></div>
+      <div class="modal__body">This is a focus-trapped modal. Press Escape or click the backdrop to close.</div>
+      <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" data-modal-close>Confirm</button></div>
+    </div>
+  </div>
+
+  <script src="../components/interaction.js"></script>
+  <script src="js/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+name: kiri-ux CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install stylelint
+        run: npm install --no-save stylelint stylelint-config-standard
+      - name: Lint CSS
+        run: npx stylelint "tokens/**/*.css" "base/**/*.css" "components/**/*.css" --config .stylelintrc.json
+      - name: Check for hardcoded colors (Anti ISC-69)
+        run: bash scripts/check-hardcoded-colors.sh

@@ -1,0 +1,16 @@
+/* demo-only styles (not part of the kiri-ux distributable) */
+
+.sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.demo-controls { padding: var(--space-sm) var(--space-2) var(--space-md); border-bottom: 1px solid var(--color-border); margin-bottom: var(--space-sm); }
+
+.demo-section { padding: var(--space-xl) 0; border-top: 1px solid var(--color-border); scroll-margin-top: var(--space-md); }
+.demo-h2 { font-size: var(--text-h2-size); font-weight: var(--font-weight-bold); margin-bottom: var(--space-sm); }
+.demo-h3 { font-size: var(--text-h4-size); font-weight: var(--font-weight-semibold); margin: var(--space-md) 0 var(--space-xs); color: var(--color-on-surface-muted); }
+.demo-use { color: var(--color-on-surface-muted); font-size: var(--text-small-size); margin-bottom: var(--space-2xs); max-width: 70ch; }
+.demo-dont { color: var(--color-on-surface-muted); font-size: var(--text-small-size); margin-bottom: var(--space-sm); max-width: 70ch; }
+.demo-preview { padding: var(--space-md); background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-md); margin: var(--space-sm) 0; }
+.demo-snippet { margin-top: var(--space-xs); font-size: var(--text-caption-size); max-height: none; }
+
+.swatch-row { display: flex; flex-wrap: wrap; gap: var(--space-2xs); margin: var(--space-xs) 0; }
+.swatch { width: 64px; height: 56px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); display: flex; align-items: flex-end; padding: 2px 4px; }
+.swatch span { font-size: 9px; font-family: var(--font-mono); background: var(--color-surface-overlay); color: #fff; padding: 0 2px; border-radius: 2px; }

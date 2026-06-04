@@ -1,0 +1,22 @@
+/* kiri-ux · semantic/space.css
+ * Named spacing roles mapped to the 8-point primitive grid. Components use
+ * these names so intent is legible (--space-card-pad, not --space-4).
+ */
+
+:root {
+  --space-2xs: var(--space-1);   /* 4  — icon gaps, chip padding */
+  --space-xs:  var(--space-2);   /* 8  — tight stacks */
+  --space-sm:  var(--space-3);   /* 12 — default gap */
+  --space-md:  var(--space-4);   /* 16 — card padding */
+  --space-lg:  var(--space-5);   /* 24 — section gaps */
+  --space-xl:  var(--space-6);   /* 32 — block separation */
+  --space-2xl: var(--space-7);   /* 48 — major sections */
+  --space-3xl: var(--space-8);   /* 64 — page-level rhythm */
+
+  /* component-intent aliases */
+  --space-card-pad:     var(--space-md);
+  --space-stack-gap:    var(--space-sm);
+  --space-cluster-gap:  var(--space-xs);
+  --space-section-gap:  var(--space-xl);
+  --space-page-pad:     var(--space-lg);
+}

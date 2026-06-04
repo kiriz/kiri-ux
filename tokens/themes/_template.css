@@ -1,0 +1,50 @@
+/* kiri-ux · themes/_template.css
+ * ───────────────────────────────────────────────────────────────────────────
+ * COPY THIS FILE to themes/<yourproject>.css and edit the values below.
+ * Load it AFTER base.css. These are the ONLY tokens a project should override
+ * to brand itself. Everything else cascades automatically.
+ *
+ *   <link rel="stylesheet" href="kiri-ux/tokens/themes/base.css">
+ *   <link rel="stylesheet" href="kiri-ux/tokens/themes/yourproject.css">
+ * ───────────────────────────────────────────────────────────────────────────
+ */
+
+:root {
+  /* ── BRAND HUE ──────────────────────────────────────────────
+   * The single most important knob. Rotating this re-tints the
+   * entire primary scale (steps 1–12) coherently.
+   *   210=blue  160=teal  145=green  280=violet  340=pink  25=orange
+   */
+  --primary-hue: 217;
+
+  /* ── NEUTRAL HUE ────────────────────────────────────────────
+   * Warmth of greys. Tie near the brand hue for harmony, or 0 for
+   * pure neutral. 225 = cool blue-grey (default).
+   */
+  --neutral-hue: 225;
+
+  /* ── DENSITY ────────────────────────────────────────────────
+   * Multiplies all spacing + type sizes. 0.9 = compact (dashboards),
+   * 1 = default, 1.1 = comfortable (content sites).
+   */
+  --scaling: 1;
+
+  /* ── ROUNDNESS ──────────────────────────────────────────────
+   * Multiplies all radii. 0 = sharp/technical, 1 = default,
+   * 1.5 = friendly/rounded.
+   */
+  --radius-scaling: 1;
+
+  /* ── FONTS (optional) ───────────────────────────────────────
+   * Override only if the project loads a web font. The system stack
+   * works with no override.
+   */
+  /* --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif; */
+  /* --font-mono: "JetBrains Mono", ui-monospace, monospace; */
+
+  /* ── SHADOW MOOD (optional) ─────────────────────────────────
+   * --shadow-strength: 0.4 (dark default) … 0.08 (light).
+   * --shadow-hue tints shadows toward the brand for cohesion.
+   */
+  /* --shadow-hue: 217; */
+}
