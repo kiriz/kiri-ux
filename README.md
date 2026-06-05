@@ -1,5 +1,10 @@
 # kiri-ux
 
+[![CI](https://github.com/kiriz/kiri-ux/actions/workflows/ci.yml/badge.svg)](https://github.com/kiriz/kiri-ux/actions/workflows/ci.yml)
+[![Pages](https://github.com/kiriz/kiri-ux/actions/workflows/pages.yml/badge.svg)](https://github.com/kiriz/kiri-ux/actions/workflows/pages.yml)
+[![Live demo](https://img.shields.io/badge/demo-kiriz.github.io%2Fkiri--ux-3b82f6)](https://kiriz.github.io/kiri-ux/)
+[![Vanilla CSS](https://img.shields.io/badge/CSS-vanilla%20%C2%B7%20no%20deps-8b5cf6)](https://github.com/kiriz/kiri-ux)
+
 **A token-driven, dark-mode-first design system. Vanilla CSS + minimal JS. Reused across every project.**
 
 Live demo: https://kiriz.github.io/kiri-ux
